@@ -20,4 +20,8 @@ Emergencia empilhar(Emergencia e, Paciente p);
 
 Emergencia desempilhar(Emergencia e);
 
+void mostrarPilha(Emergencia e);
+
+void gerarRelatorio(Emergencia e);
+
 #endif
