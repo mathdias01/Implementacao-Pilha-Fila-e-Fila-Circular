@@ -24,7 +24,7 @@ Emergencia empilhar(Emergencia e, Paciente p){
     else{
         e.topo++;
         e.pacientes[e.topo] = p;
-        printf("Paciente %d, enviado para a Emergencia!\n", p.nome);
+        printf("Paciente: %s, Enviado para a Emergencia!\n", p.nome);
     }
     return e;
 
@@ -36,7 +36,8 @@ Emergencia desempilhar(Emergencia e){
     }
 
     else{
-        printf("Paciente %s atendido", e.pacientes[e.topo].nome);
+        printf("-- Dados do paciente atendido--\n");
+        printf("Paciente: %s\n Idade: %d\n Gravidade: %d\n Tipo atendimento: %d.\n", e.pacientes[e.topo].nome, e.pacientes[e.topo].idade, e.pacientes[e.topo].gravidade, e.pacientes[e.topo].tipo_atendimento);
         e.topo--;
     }
     return e;
