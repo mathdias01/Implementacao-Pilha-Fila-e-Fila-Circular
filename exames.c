@@ -51,7 +51,7 @@ void mostrarExames(Exame e){
         int i = e.frente;
         int total = e.qtd;
         for(int cont = 0; cont < total; cont++){
-            printf("Posicao: %d - Nome: %s | Gravidade: %d\n",i, e.exames[i].nome, e.exames[i].gravidade);
+            printf("Posicao: %d - Nome: %s | Gravidade: %d\n",i+ 1, e.exames[i].nome, e.exames[i].gravidade);
             i = (i + 1) % MAX_EXAMES;
         }
         

@@ -52,7 +52,7 @@ void mostrarPilha(Emergencia e){
     printf("\n--- PACIENTES NA EMERGENCIA (Do mais recente ao mais antigo) ---\n");
 
     for(int i = e.topo ; i>= 0; i--){
-        printf("Posicao: %d - Nome: %s | Gravidade: %d\n ",i, e.pacientes[i].nome, e.pacientes[i].gravidade);
+        printf("Posicao: %d - Nome: %s | Gravidade: %d\n ",i + 1, e.pacientes[i].nome, e.pacientes[i].gravidade);
     }
 }
 

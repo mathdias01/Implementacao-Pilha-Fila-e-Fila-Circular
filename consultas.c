@@ -49,7 +49,7 @@ void mostrarConsultas(consulta c){
     else{
         printf("\n--- PACIENTES NO SETOR DE CONSULTAS (Do mais recente ao mais antigo) ---\n");
         for (int i = c.frente; i <= c.tras; i++){
-            printf("Posicao: %d - Nome: %s | Gravidade: %d\n ",i, c.consultas[i].nome, c.consultas[i].gravidade);
+            printf("Posicao: %d - Nome: %s | Gravidade: %d\n ",i + 1, c.consultas[i].nome, c.consultas[i].gravidade);
         }
     }
 }
