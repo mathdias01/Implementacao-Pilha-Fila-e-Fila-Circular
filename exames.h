@@ -1,7 +1,7 @@
 #ifndef EXAMES_H
 #define EXAMES_H
 #include "paciente.h"
-#define MAX_EXAMES 8
+#define MAX_EXAMES 1000
 
 typedef struct{
     int frente;

@@ -2,7 +2,7 @@
 #define EMERGENCIA_H
 #include "paciente.h"
 
-#define MAX_EMERGENCIA 5
+#define MAX_EMERGENCIA 1000
 
 typedef struct{
     Paciente pacientes[MAX_EMERGENCIA];

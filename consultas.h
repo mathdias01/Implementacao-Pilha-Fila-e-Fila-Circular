@@ -1,7 +1,7 @@
 #ifndef CONSULTAS_H
 #define CONSULTAS_H
 #include "paciente.h"
-#define MAX_CONSULTAS 5
+#define MAX_CONSULTAS 1000
 
 typedef struct{
     

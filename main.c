@@ -2,6 +2,7 @@
 #include "emergencia.h"
 #include "consultas.h"
 #include "exames.h"
+#include <time.h>
 
 Paciente CadastrarPaciente(){
     Paciente p;
@@ -46,7 +47,8 @@ int main(){
         printf("8. Exibir relatorio da emergencia.\n");
         printf("9. Exibir relatorio das consultas agendadas.\n");
         printf("10. Exibir relatorio dos Exames/laboratorio.\n");
-
+    
+        printf("11. Rodar teste de estresse e tempo.\n");
         printf("0. Sair\n");
         printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
@@ -117,6 +119,72 @@ int main(){
         }
         case 10:{
             gerarRelatorioExames(setorExames);
+            break;
+        }
+        case 11:{
+            printf("\n--- INICIANDO TESTE DE ESTRESSE E TEMPO ---\n");
+            clock_t inicio, fim;
+            double t_emergencia_inserir, t_emergencia_atender;
+            double t_consultas_inserir, t_consultas_atender;
+            double t_exames_inserir, t_exames_atender; 
+
+            int rodadas = 1000;
+            
+            printf("Executando %d operacoes em todos os setores...\n", rodadas);
+
+
+            //setor emergencia
+            inicio = clock();
+            for (int i = 0; i < rodadas; i++){
+                Paciente p = {"Paciente teste", 30, 5, 1};
+                setorEmergencia = empilhar(setorEmergencia, p);
+            }
+            fim = clock();
+            t_emergencia_inserir = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
+
+            inicio = clock();
+            for (int i = 0; i < rodadas; i++){
+                setorEmergencia = desempilhar(setorEmergencia);
+            }
+            fim = clock();
+            t_emergencia_atender = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
+            
+            // setor consultas
+            inicio = clock();
+            for (int i = 0; i < rodadas; i++){
+                Paciente p = {"Paciente teste", 30, 3, 2};
+                setorConsultas = enfileirarConsultas(setorConsultas, p);
+            }
+            fim = clock();
+            t_consultas_inserir = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
+
+            inicio = clock();
+            for (int i = 0; i < rodadas; i++){
+                setorConsultas = desenfileirarConsultas(setorConsultas);
+            }
+            fim = clock();
+            t_consultas_atender = ((double)(fim - inicio)) / CLOCKS_PER_SEC;    
+
+            // setor exames
+            inicio = clock();
+            for (int i = 0; i < rodadas; i++){
+                Paciente p = {"Paciente teste", 30, 2, 3};
+                setorExames = enfileirarExames(setorExames, p);
+            }
+            fim = clock();
+            t_exames_inserir = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
+
+            inicio = clock();
+            for (int i = 0; i < rodadas; i++){
+                setorExames = desenfileirarExames(setorExames);
+            }
+            fim = clock();
+            t_exames_atender = ((double)(fim - inicio)) / CLOCKS_PER_SEC;
+
+            printf("\n--- RESULTADOS DO TESTE DE ESTRESSE(EM SEGUNDOS) ---\n");
+            printf("Setor Emergencia(Pilha)  | Insercao: %f segundos | Atendimento: %f segundos\n", t_emergencia_inserir, t_emergencia_atender);
+            printf("Setor Consultas(Fila)    | Insercao: %f segundos | Atendimento: %f segundos\n", t_consultas_inserir, t_consultas_atender);
+            printf("Setor Exames(Fila Circular) | Insercao: %f segundos | Atendimento: %f segundos\n", t_exames_inserir, t_exames_atender);
             break;
         }
         case 0:{
