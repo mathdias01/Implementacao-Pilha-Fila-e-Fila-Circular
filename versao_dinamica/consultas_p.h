@@ -1,6 +1,8 @@
 #ifndef CONSULTAS_P_H
 #define CONSULTAS_P_H
 #include "paciente_p.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 typedef struct{
     int frente;

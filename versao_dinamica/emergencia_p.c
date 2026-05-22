@@ -1,6 +1,3 @@
-#include "paciente_p.h"
-#include <stdlib.h>
-#include <stdio.h>
 #include "emergencia_p.h"
 
 

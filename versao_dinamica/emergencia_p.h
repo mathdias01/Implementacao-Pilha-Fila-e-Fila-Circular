@@ -1,6 +1,7 @@
 #ifndef EMERGeNCIA_P_H
 #define EMERGeNCIA_P_H
 #include "paciente_p.h"
+#include<stdio.h>
 #include <stdlib.h>
 
 typedef struct{

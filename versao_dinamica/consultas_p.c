@@ -1,7 +1,5 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "consultas_p.h"
-#include "paciente_p.h"
+
 
 
 Consultas* iniciarFilaConsultas(int quantidade){
@@ -44,6 +42,8 @@ Consultas* desenfileirarConsultas(Consultas *c){
     }
     else{
         printf("Paciente: %s\n Idade: %d\n Gravidade: %d\n Tipo atendimento: %d\n atendido!\n", c->pacientes[c->frente].nome, c->pacientes[c->frente].idade, c->pacientes[c->frente].gravidade, c->pacientes[c->frente].tipo_atendimento);
+        c->frente++;
+        return c;
 }
 
 
