@@ -19,5 +19,6 @@ int estaCheiaExames(Exames *e);
 int estaVaziaExames(Exames *e);
 void mostrarExames(Exames *e);
 void gerarRelatorioExames(Exames *e);
+void liberarExames(Exames *e);
 
 #endif 

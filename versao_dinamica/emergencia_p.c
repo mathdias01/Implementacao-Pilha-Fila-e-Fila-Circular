@@ -22,6 +22,7 @@ int estaCheiaEmergencia(Emergencia *e){
 Emergencia* empilharEmergencia(Emergencia *e, Paciente paciente){
         if (estaCheiaEmergencia(e)){
                 printf("A fila da emergencia esta lotada, aguarde alguem ser atendido\n");
+                return e;
         }
         else{
                 e->topo++;
@@ -35,9 +36,10 @@ Emergencia* empilharEmergencia(Emergencia *e, Paciente paciente){
 Emergencia* desempilharEmergencia(Emergencia *e){
         if(estaVaziaEmergencia(e)){
                 printf("Setor emergencia vazio!");
+                return e;
         }
         else{
-                printf("Paciente: %s | Gravidade: %d | tipo de atendimento: %d - Foi atendido na emergencia!\n");
+                printf("Paciente: %s | Gravidade: %d | tipo de atendimento: %d - Foi atendido na emergencia!\n", e->pacientes[e->topo].nome, e->pacientes[e->topo].gravidade, e->pacientes[e->topo].tipo_atendimento);
                 e->topo--;
                 return e;
         }
@@ -71,3 +73,13 @@ void gerarRelatorioEmergencia(Emergencia *e){
         }
 }
 
+void liberarEmergencia(Emergencia *e) {
+    if (e != NULL) {
+        // 1. Libera o vetor de pacientes alocado dinamicamente dentro da pilha
+        if (e->pacientes != NULL) {
+            free(e->pacientes);
+        }
+        // 2. Libera a estrutura da Pilha de Emergência em si
+        free(e);
+    }
+}

@@ -203,6 +203,11 @@ int main(){
                 break;
             }
             case 0:{
+                printf("Liberando memoria do sistema...\n");
+                
+                liberarEmergencia(setorEmergencia);
+                liberarConsultas(setorConsultas);
+                liberarExames(setorExames);
                 printf("Saindo do sistema...\n");
                 break;
             }

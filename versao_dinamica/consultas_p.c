@@ -25,6 +25,7 @@ int estaVaziaConsultas(Consultas *c){
 Consultas* enfileirarConsultas(Consultas *c, Paciente p){
     if (estaCheiaConsultas(c)){
         printf("Setor de consultas lotado, espere alguem ser atendido!\n");
+        return c;
     }
     else{
         c->tras++;
@@ -39,6 +40,7 @@ Consultas* enfileirarConsultas(Consultas *c, Paciente p){
 Consultas* desenfileirarConsultas(Consultas *c){
     if(estaVaziaConsultas(c)){
         printf("Setor consultas vazio!\n");
+        return c;
     }
     else{
         printf("Paciente: %s\n Idade: %d\n Gravidade: %d\n Tipo atendimento: %d\n atendido!\n", c->pacientes[c->frente].nome, c->pacientes[c->frente].idade, c->pacientes[c->frente].gravidade, c->pacientes[c->frente].tipo_atendimento);
@@ -73,5 +75,17 @@ void gerarRelatorioConsultas(Consultas *c){
         printf("Vagas no setor Consultas:%d\n", vagas);
     }
 }   
+
+
+void liberarConsultas(Consultas *c) {
+    if (c != NULL) {
+        // 1. Libera o vetor interno de pacientes primeiro
+        if (c->pacientes != NULL) {
+            free(c->pacientes);
+        }
+        // 2. Libera a estrutura da fila depois
+        free(c);
+    }
+}
 
 

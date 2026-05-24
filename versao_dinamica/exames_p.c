@@ -24,6 +24,7 @@ int estaVaziaExames(Exames *e){
 Exames* enfileirarExames(Exames *e, Paciente p){
     if(estaCheiaExames(e)){
         printf("Setor exames cheio, espere alguem ser atendido!\n");
+        return e;
     }
     else{
        
@@ -38,9 +39,10 @@ Exames* enfileirarExames(Exames *e, Paciente p){
 Exames* desenfileirarExames(Exames *e){
     if(estaVaziaExames(e)){
         printf("Setor exames vazio, ninguem para ser atendido!\n");
+        return e;
     }
     else{
-        printf("Paciente: %s\n Idade: %d\n Gravidade: %d\n Tipo atendimento: %d\n atendido!\n", e->pacientes[e->frente].nome, e->pacientes[e->frente].gravidade, e->pacientes[e->frente].tipo_atendimento);
+        printf("Paciente: %s\n Idade: %d\n Gravidade: %d\n Tipo atendimento: %d\n atendido!\n", e->pacientes[e->frente].nome, e->pacientes[e->frente].idade, e->pacientes[e->frente].gravidade, e->pacientes[e->frente].tipo_atendimento);
         e->frente = (e->frente + 1) % e->tamanho;
         e->qtd--;  
         return e;
@@ -75,5 +77,16 @@ void gerarRelatorioExames(Exames *e){
     else{
         printf("Vagas disponiveis no setor: %d\n", vagas);
         printf("Pacientes a serem atendidos: %d\n", total);
+    }
+}
+
+void liberarExames(Exames *e) {
+    if (e != NULL) {
+        // 1. Libera o vetor de pacientes alocado dinamicamente dentro da fila circular
+        if (e->pacientes != NULL) {
+            free(e->pacientes);
+        }
+        // 2. Libera a estrutura da Fila de Exames em si
+        free(e);
     }
 }

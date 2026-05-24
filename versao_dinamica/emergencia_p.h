@@ -18,6 +18,7 @@ Emergencia* empilharEmergencia(Emergencia *e, Paciente paciente);
 Emergencia* desempilharEmergencia(Emergencia *e);
 void mostrarPilhaEmergencia(Emergencia *e);
 void gerarRelatorioEmergencia(Emergencia *e);
+void liberarEmergencia(Emergencia *e);
 
 
 

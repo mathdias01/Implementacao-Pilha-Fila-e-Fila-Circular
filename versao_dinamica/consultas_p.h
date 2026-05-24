@@ -19,5 +19,6 @@ Consultas* enfileirarConsultas(Consultas *c, Paciente p);
 Consultas* desenfileirarConsultas(Consultas *c);
 void mostrarConsultas(Consultas *c);
 void gerarRelatorioConsultas(Consultas *c);
+void liberarConsultas(Consultas *c);
 
 #endif
