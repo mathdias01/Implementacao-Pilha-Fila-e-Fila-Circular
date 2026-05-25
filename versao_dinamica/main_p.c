@@ -28,9 +28,9 @@ Paciente  cadastrarPaciente(){
 
 
 int main(){
-    Emergencia *setorEmergencia = iniciarEmergencia(10000);
-    Consultas *setorConsultas = iniciarFilaConsultas(10000);
-    Exames *setorExames = iniciarExames(10000);
+    Emergencia *setorEmergencia = iniciarEmergencia(1000);
+    Consultas *setorConsultas = iniciarFilaConsultas(1000);
+    Exames *setorExames = iniciarExames(1000);
 
 
     int opcao;
@@ -134,7 +134,7 @@ int main(){
 
                 inicio = clock();
                 
-                for(int i = 0; i < 10000; i++){
+                for(int i = 0; i < 1000; i++){
                     setorEmergencia = empilharEmergencia(setorEmergencia, p_teste_emergencia);
                 }
                 fim = clock();
@@ -142,7 +142,7 @@ int main(){
                 t_emergencia_inserir = ((double) (fim - inicio)) / CLOCKS_PER_SEC; 
 
                 inicio = clock();
-                for(int i = 0; i < 10000; i++){
+                for(int i = 0; i < 1000; i++){
                     setorEmergencia = desempilharEmergencia(setorEmergencia);
                 }
                 fim = clock();
@@ -151,7 +151,7 @@ int main(){
 
                 inicio = clock();
 
-                for(int i = 0; i < 10000; i++){
+                for(int i = 0; i < 1000; i++){
                     setorConsultas = enfileirarConsultas(setorConsultas, p_teste_consultas);
                 }
 
@@ -161,7 +161,7 @@ int main(){
 
                 inicio = clock();
 
-                for(int i = 0; i < 10000; i++){
+                for(int i = 0; i < 1000; i++){
                     setorConsultas = desenfileirarConsultas(setorConsultas);
                 }
 
@@ -171,7 +171,7 @@ int main(){
 
                 inicio = clock();
 
-                for(int i = 0; i < 10000; i++){
+                for(int i = 0; i < 1000; i++){
                     setorExames = enfileirarExames(setorExames, p_teste_exames);
                 }
 
@@ -182,7 +182,7 @@ int main(){
 
                 inicio = clock();
 
-                for(int i = 0; i < 10000; i++){
+                for(int i = 0; i < 1000; i++){
                     setorExames = desenfileirarExames(setorExames);
                 }
                 fim = clock();
